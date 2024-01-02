@@ -1,9 +1,6 @@
 package pl.library.libraryonline.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Book {
@@ -14,6 +11,7 @@ public class Book {
     private String title;
     private String author;
     private String publisher;
+    @Column(name = "release_year")
     private Integer year;
     private Integer pages;
     private String description;
