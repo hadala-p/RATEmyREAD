@@ -82,7 +82,7 @@ and should take up most of the available space
     display: block;
     max-width: 200px;
 }
-/*Movie card*/
+/*book card*/
 .book-list-item-card {
     display: flex;
     flex-direction: column;
@@ -132,5 +132,103 @@ and should take up most of the available space
     .menu {
         align-self: center;
         width: 960px;
+    }
+}
+/*book.html*/
+/*Informacje o filmie w jednym rzędzie z odstępem od jumbotrona*/
+.book-summary {
+    display: flex;
+    margin-top: 16px;
+}
+/*Mniejsza okładka na małych ekranach*/
+.book-summary-cover {
+    object-fit: contain;
+    max-width: 200px;
+}
+/*Odstęp informacji o filmie od okładki*/
+.book-summary-info {
+    margin-left: 16px;
+}
+/*autor w kolorze szarym i odstęp pod nim*/
+.book-summary-author {
+    color: #9e9e9e;
+    margin-bottom: 16px;
+}
+/*Odstępy między poszczególnymi informacjami*/
+.book-summary-item {
+    margin: 8px 0;
+}
+/*Większy tytuł filmu*/
+.book-summary-title {
+    font-size: 2rem;
+}
+/*Wyśrodkowanie głosowania*/
+.book-rating-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 200px;
+}
+
+/*Wyśrodkowanie tekstu Twoja ocena*/
+.book-rating-form > p {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+/*Powiększenie i wyśrodkowanie średniej oceny*/
+.book-rating-value {
+    font-size: 4rem;
+    text-align: center;
+}
+/*Styl dla przycisków z ocenami*/
+.book-rating-button {
+    background-color: #ffc107;
+    border: 0;
+    padding: 4px;
+    font-size: 1.6rem;
+    border-radius: 4px;
+    opacity: 0.8;
+}
+/*Usunięcie przezroczystości po najechaniu na przycisk*/
+.book-rating-button:hover {
+    opacity: 1;
+}
+/*Odstępy między elementami w ramce z głosowaniem*/
+.book-rating-container > * {
+    margin: 8px 0;
+}
+/*Ramka dla boxu z głosowaniem*/
+.book-section {
+    margin-top: 16px;
+    padding: 16px;
+    border: 1px #6d6d6d solid;
+}
+/*Odstęp pod nagłówkami sekcji*/
+.book-section-heading {
+    margin-bottom: 8px;
+}
+.book-section-reservation{
+    margin: 10px;
+    text-align: center;
+}
+/*book.html END*/
+/*Responsive book.html*/
+@media only screen and (min-width: 992px) {
+    /*Dodajemy rozkład elastyczny, elementy będą wyświetlane w jednym wierszu*/
+    .book {
+        display: flex;
+        justify-content: space-between;
+    }
+    /*Przyciski powinny wyświetlać się obok siebie, bez zawijania wiersza*/
+    .book-rating-buttons {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    /*Większe odstępy między przyciskami*/
+    .book-rating-button {
+        font-size: 1.2rem;
+        margin: 0 4px;
     }
 }
