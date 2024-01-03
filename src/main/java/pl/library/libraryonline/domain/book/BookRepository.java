@@ -1,7 +1,9 @@
-package pl.library.libraryonline.Repository;
+package pl.library.libraryonline.domain.book;
 
 import org.springframework.data.repository.CrudRepository;
-import pl.library.libraryonline.Domain.book.Book;
+
+import java.util.List;
 
 public interface BookRepository extends CrudRepository<Book, Long> {
+    List<Book> findAllByPromotedIsTrue();
 }

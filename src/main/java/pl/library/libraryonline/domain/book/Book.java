@@ -1,7 +1,7 @@
-package pl.library.libraryonline.Domain.book;
+package pl.library.libraryonline.domain.book;
 
 import jakarta.persistence.*;
-import pl.library.libraryonline.Domain.genre.Genre;
+import pl.library.libraryonline.domain.genre.Genre;
 
 @Entity
 public class Book {

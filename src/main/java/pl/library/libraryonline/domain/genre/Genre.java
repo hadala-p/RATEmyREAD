@@ -1,4 +1,4 @@
-package pl.library.libraryonline.Domain.genre;
+package pl.library.libraryonline.domain.genre;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

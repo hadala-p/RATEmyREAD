@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Library</title>
@@ -11,14 +11,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-    <script defer src="../static/scripts/common.js"></script>
-    <link rel="stylesheet" href="../static/styles/main.css">
+    <script defer src="../static/scripts/common.js" th:src="@{/scripts/common.js}"></script>
+    <link rel="stylesheet" href="../static/styles/main.css" th:href="@{/styles/main.css}">
 </head>
 <body>
 <div class="container">
     <ul class="menu">
         <li class="menu-logo-container">
-            <a href="#">
+            <a href="#" th:href="@{/}">
                 <i class="fas fa-book logo"></i> Library
             </a>
         </li>
@@ -42,22 +42,23 @@
         </p>
     </header>
     <main class="main-content">
-        <h2 class="list-heading">Promowane książki / Nazwa Kategorii</h2>
-        <p class="list-description">Opis sekcji, przykładowo opis kategorii, albo strony głównej</p>
-        <ul class="book-list">
-            <li class="book-list-item">
-                <a href="#">
+        <h2 class="list-heading" th:text="${heading}">Promowane książki / Nazwa Kategorii</h2>
+        <p class="list-description" th:text="${description}">Opis sekcji, przykładowo opis kategorii, albo strony głównej</p>
+        <ul class="book-list" th:remove="all-but-first">
+            <li class="book-list-item" th:each="book: ${books}">
+                <a href="#" th:href="@{|/book/${book.id}|}">
                     <img src="../static/img/img.jpg"
+                         th:src="@{/img/img.jpg}"
                          alt="tytuł filmu"
                          class="book-list-item-poster">
                 </a>
                 <div class="book-list-item-card">
                     <div class="book-list-item-content">
                         <h3 class="book-list-item-title">
-                            <a href="#">Tytuł książki</a>
+                            <a href="#" th:href="@{|/book/${book.id}|}" th:text="${book.title}">Tytuł książki</a>
                         </h3>
-                        <h4>Angielski tytuł książki</h4>
-                        <p>1999</p>
+                        <h4 th:text="${book.author}">Autor</h4>
+                        <p th:text="${book.release_year}">1999</p>
                     </div>
                     <div class="book-list-item-rating">
                         <i class="fas fa-star"></i>
