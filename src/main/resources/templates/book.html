@@ -1,47 +1,14 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
-    <meta charset="UTF-8">
-    <title>Tytuł filmu - LibraryOnline</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-    <script defer src="../static/scripts/common.js"></script>
-    <link rel="stylesheet" href="../static/styles/main.css">
+    <title>Tytuł książki - LibraryOnline</title>
 </head>
 <body>
 <div class="container">
-    <ul class="menu">
-        <li class="menu-logo-container">
-            <a href="#" th:href="@{/}">
-                <i class="fas fa-book logo"></i> Library
-            </a>
-        </li>
-        <li class="menu-toggle">
-            <a href="#"><i id="toggle-icon" class="far fa-plus-square"></i></a>
-        </li>
-        <li class="menu-item">
-            <a href="#">Gatunki</a>
-        </li>
-        <li class="menu-item">
-            <a href="#">Top10</a>
-        </li>
-        <li class="menu-item">
-            <a href="#">Zaloguj się</a>
-        </li>
-    </ul>
-    <header class="jumbotron">
-        <h1 class="jumbotron-header">book Club</h1>
-        <p class="jumbotron-description">
-            Witaj w najlepszej bibliotece w internecie!
-        </p>
-    </header>
-    <main class="main-content">
+    <main class="main-content" layout:fragment="content">
         <section class="book">
             <div class="book-summary">
                 <img src="../static/img/img.jpg"
@@ -79,15 +46,14 @@
     <main class="main-content">
         <section class="book-section">
             <h2 class="book-section-heading">Opis</h2>
-            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at,
-                tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a scelerisque ipsum, ac pulvinar ex.
+                In sem justo, facilisis quis quam ut, porttitor auctor elit. Sed eros orci, aliquet ut neque ac,
+                accumsan dapibus urna. Nulla facilisi. Nulla porttitor mattis sodales. Curabitur tempus arcu lacus,
+                dapibus tincidunt nibh ornare ac. Fusce pretium diam dolor, et efficitur tortor ornare sed. Donec nec
+                tellus eu eros pulvinar faucibus. Proin non posuere massa.</p>
         </section>
         <p class = "book-section-reservation"><a href="#">Zaloguj się</a>, aby zarezerwować książkę</p>
     </main>
-
-    <footer class="footer">
-        <p>Library 2024 <i class="fas fa-copyright"></i> Library.pl</p>
-    </footer>
 </div>
 </body>
 </html>
