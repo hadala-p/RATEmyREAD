@@ -4,7 +4,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}">
 <head>
-    <title>Tytuł książki - LibraryOnline</title>
+    <title th:text="|${book.title} - LibraryOnline|">Tytuł książki - LibraryOnline</title>
 </head>
 <body>
 <div class="container">
@@ -12,14 +12,21 @@
         <section class="book">
             <div class="book-summary">
                 <img src="../static/img/img.jpg"
+                     th:src="@{/img/img.jpg}"
                      alt="tytuł książki"
+                     th:alt="${book.title}"
                      class="book-summary-cover"
                 />
                 <div class="book-summary-info">
-                    <h1 class="book-summary-title">Tytuł</h1>
-                    <p class="book-summary-author">Autor</p>
-                    <p class="book-summary-item">Rok</p>
-                    <p class="book-summary-item">Gatunek: <a href="#">Gatunek</a> </p>
+                    <h1 class="book-summary-title" th:text="${book.title}">Tytuł</h1>
+                    <p class="book-summary-author" th:text="${book.author}">Autor</p>
+                    <p class="book-summary-item" th:text="|Rok: ${book.release_year}|">Rok</p>
+                    <p class="book-summary-item" th:text="|Wydawnictwo: ${book.publisher}|">Rok</p>
+                    <p class="book-summary-item" th:text="|Stron: ${book.pages}|">Rok</p>
+                    <p class="book-summary-item">Gatunek: <a href="#"
+                                                             th:href="@{|/gatunek/${book.genre}|}"
+                                                             th:text="${book.genre}">Gatunek</a>
+                    </p>
                 </div>
             </div>
             <div class="book-rating-container book-section">
@@ -42,11 +49,9 @@
                 <p><a href="#">Zaloguj się</a>, aby oddać głos</p>
             </div>
         </section>
-    </main>
-    <main class="main-content">
         <section class="book-section">
             <h2 class="book-section-heading">Opis</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a scelerisque ipsum, ac pulvinar ex.
+            <p th:text="${book.description}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a scelerisque ipsum, ac pulvinar ex.
                 In sem justo, facilisis quis quam ut, porttitor auctor elit. Sed eros orci, aliquet ut neque ac,
                 accumsan dapibus urna. Nulla facilisi. Nulla porttitor mattis sodales. Curabitur tempus arcu lacus,
                 dapibus tincidunt nibh ornare ac. Fusce pretium diam dolor, et efficitur tortor ornare sed. Donec nec

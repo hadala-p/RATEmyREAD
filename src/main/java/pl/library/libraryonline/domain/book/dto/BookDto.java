@@ -13,7 +13,16 @@ public class BookDto {
     private String genre;
     private boolean promoted;
 
-    public BookDto(Long id, String title, String author, String publisher, Integer release_year, Integer pages, String description, String img, String genre, boolean promoted) {
+    public BookDto(Long id,
+                   String title,
+                   String author,
+                   String publisher,
+                   Integer release_year,
+                   Integer pages,
+                   String description,
+                   String img,
+                   String genre,
+                   boolean promoted) {
         this.id = id;
         this.title = title;
         this.author = author;
