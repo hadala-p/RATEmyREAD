@@ -13,6 +13,8 @@ public class Book {
     private String publisher;
     private Integer release_year;
     private Integer pages;
+    @Lob
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
     private String img;
     @ManyToOne

@@ -1,0 +1,10 @@
+insert into genre (name) values ('Science Fiction');
+insert into genre (name) values ('Fantasy');
+insert into genre (name) values ('Kryminał');
+insert into genre (name) values ('Romans');
+insert into genre (name) values ('Dla dzieci');
+insert into genre (name) values ('Nauka');
+insert into genre (name) values ('Przygodowe');
+insert into genre (name) values ('Thriller');
+insert into genre (name) values ('Horror');
+insert into genre (name) values ('Biografia');
