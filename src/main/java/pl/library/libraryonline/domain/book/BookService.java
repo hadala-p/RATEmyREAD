@@ -18,7 +18,12 @@ public class BookService {
     public List<BookDto> findAllPromotedBooks() {
         return bookRepository.findAllByPromotedIsTrue().stream().map(BookDtoMapper::map).toList();
     }
+
     public Optional<BookDto> findBookById(long id) {
         return bookRepository.findById(id).map(BookDtoMapper::map);
+    }
+
+    public List<BookDto> findBooksByGenreName(String genre) {
+        return bookRepository.findAllByGenre_NameIgnoreCase(genre).stream().map(BookDtoMapper::map).toList();
     }
 }

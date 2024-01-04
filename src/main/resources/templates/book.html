@@ -24,7 +24,7 @@
                     <p class="book-summary-item" th:text="|Wydawnictwo: ${book.publisher}|">Rok</p>
                     <p class="book-summary-item" th:text="|Stron: ${book.pages}|">Rok</p>
                     <p class="book-summary-item">Gatunek: <a href="#"
-                                                             th:href="@{|/gatunek/${book.genre}|}"
+                                                             th:href="@{|/genre/${book.genre}|}"
                                                              th:text="${book.genre}">Gatunek</a>
                     </p>
                 </div>
