@@ -230,6 +230,16 @@ and should take up most of the available space
     margin: 10px;
     text-align: center;
 }
+.list-border {
+    margin: auto;
+    list-style: none;
+}
+.list-border > li {
+    font-size: 1.2rem;
+    border: 1px #6d6d6d solid;
+    padding: 16px;
+    text-align: center;
+}
 /*book.html END*/
 /*Responsive book.html*/
 @media only screen and (min-width: 992px) {
