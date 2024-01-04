@@ -108,6 +108,23 @@ and should take up most of the available space
 }
 /*FOOTER END*/
 
+/*Jumbotron START*/
+.jumbotron {
+    background-image: url("../img/jumbotron.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 2rem;
+    text-align: center;
+}
+.jumbotron-header {
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+.jumbotron-description {
+    font-size: 1.2rem;
+}
+/*Jumbotron END*/
+
 /*Responsive*/
 @media only screen and (min-width: 992px) {
     /*On a screen above 992px, we hide the button to expand the menu*/
@@ -232,3 +249,17 @@ and should take up most of the available space
         margin: 0 4px;
     }
 }
+/*error pages START*/
+.error-container {
+    margin: 32px auto;
+}
+.error-container > * {
+    display: block;
+    text-align: center;
+}
+.error-header,
+.error-icon {
+    font-size: 2rem;
+    margin: 16px 0;
+}
+/*error pages END*/
