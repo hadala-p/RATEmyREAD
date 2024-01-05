@@ -273,6 +273,23 @@ textarea {
     padding: 16px;
     text-align: center;
 }
+.mc-form > input,
+.mc-form > textarea,
+.mc-form > button,
+.mc-form > select { /*dodany selektor*/
+    font-size: 1.2rem;
+    color: black;
+    padding: 8px;
+}
+/*Większy checkbox*/
+.mc-form > input[type=checkbox] {
+    transform: scale(1.5);
+    margin-left: 5px;
+}
+/*Biały kolor tekstu przy wyborze pliku*/
+.mc-form > input[type=file] {
+    color: white;
+}
 /*book.html END*/
 /*Responsive book.html*/
 @media only screen and (min-width: 992px) {

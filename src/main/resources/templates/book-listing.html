@@ -12,7 +12,7 @@
             <li class="book-list-item" th:each="book: ${books}">
                 <a href="#" th:href="@{|/book/${book.id}|}">
                     <img src="../static/img/img.jpg"
-                         th:src="@{/img/img.jpg}"
+                         th:src="${book.img ne null} ? @{|/img/${book.img}|} : @{/img/img.jpg}"
                          alt="tytuł książki"
                          class="book-list-item-poster">
                 </a>
