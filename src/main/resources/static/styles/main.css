@@ -151,6 +151,39 @@ and should take up most of the available space
         width: 960px;
     }
 }
+/*textarea does not inherit the font from body by default*/
+textarea {
+    font-family: inherit;
+}
+/*labels and inputs one below the other with spaces on the sides*/
+.mc-form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 32px;
+}
+/*spacing between labels and inputs*/
+.mc-form > * {
+    margin-top: 8px;
+}
+/*larger inputs with paddings*/
+.mc-form > input,
+.mc-form > textarea,
+.mc-form > button {
+    font-size: 1.2rem;
+    color: black;
+    padding: 8px;
+}
+.mc-form > button {
+    margin-top: 16px;
+    background-color: white;
+    color: #ffc107;
+    border: none;
+}
+.notification-bar {
+    text-align: center;
+    background-color: #ffc107;
+    padding: 8px 0;
+}
 /*book.html*/
 /*Information about the book in one row with space from the jumbotron*/
 .book-summary {
