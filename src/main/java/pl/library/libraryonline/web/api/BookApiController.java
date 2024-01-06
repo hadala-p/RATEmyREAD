@@ -1,6 +1,7 @@
 package pl.library.libraryonline.web.api;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,12 @@ import pl.library.libraryonline.domain.book.dto.BookDto;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/books")
+@RequestMapping(
+        path = "/api/books",
+        produces = {
+                MediaType.APPLICATION_JSON_VALUE,
+                MediaType.APPLICATION_XML_VALUE
+        })
 public class BookApiController {
     private final BookService bookService;
 
@@ -20,7 +26,7 @@ public class BookApiController {
         this.bookService = bookService;
     }
 
-    @GetMapping("")
+    @GetMapping()
     public List<BookDto> getAllBooks() {
         return bookService.findAllBooks();
     }

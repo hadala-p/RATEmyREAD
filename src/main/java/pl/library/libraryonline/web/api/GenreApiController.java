@@ -1,6 +1,7 @@
 package pl.library.libraryonline.web.api;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,14 +14,17 @@ import pl.library.libraryonline.domain.genre.dto.GenreDto;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/genres")
+@RequestMapping(
+        path = "/api/genres",
+        produces = {
+                MediaType.APPLICATION_JSON_VALUE,
+                MediaType.APPLICATION_XML_VALUE
+        })
 public class GenreApiController {
     private final GenreService genreService;
-    private final BookService bookService;
 
-    public GenreApiController(GenreService genreService, BookService bookService) {
+    public GenreApiController(GenreService genreService) {
         this.genreService = genreService;
-        this.bookService = bookService;
     }
 
     @GetMapping("/{name}")
@@ -30,7 +34,7 @@ public class GenreApiController {
         return genre;
     }
 
-    @GetMapping("")
+    @GetMapping()
     public List<GenreDto> getGenreList() {
         return genreService.findAllGenres();
     }
