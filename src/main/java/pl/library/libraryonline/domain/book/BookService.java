@@ -9,6 +9,7 @@ import pl.library.libraryonline.domain.storage.FileStorageService;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.StreamSupport;
 
 @Service
 public class BookService {
@@ -18,8 +19,8 @@ public class BookService {
     private final FileStorageService fileStorageService;
 
     public BookService(BookRepository bookRepository,
-                        GenreRepository genreRepository,
-                        FileStorageService fileStorageService) {
+                       GenreRepository genreRepository,
+                       FileStorageService fileStorageService) {
         this.bookRepository = bookRepository;
         this.genreRepository = genreRepository;
         this.fileStorageService = fileStorageService;
@@ -35,6 +36,12 @@ public class BookService {
 
     public List<BookDto> findBooksByGenreName(String genre) {
         return bookRepository.findAllByGenre_NameIgnoreCase(genre).stream().map(BookDtoMapper::map).toList();
+    }
+
+    public List<BookDto> findAllBooks() {
+        return StreamSupport.stream(bookRepository.findAll().spliterator(), false)
+                .map(BookDtoMapper::map)
+                .toList();
     }
 
     public void addBook(BookSaveDto bookToSave) {

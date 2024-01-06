@@ -101,4 +101,5 @@ public class Book {
     public void setPromoted(boolean promoted) {
         this.promoted = promoted;
     }
+
 }

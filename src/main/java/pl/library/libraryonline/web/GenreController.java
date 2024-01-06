@@ -34,7 +34,7 @@ public class GenreController {
         return "book-listing";
     }
 
-    @GetMapping("/gatunki-filmowe")
+    @GetMapping("/genre")
     public String getGenreList(Model model) {
         List<GenreDto> genres = genreService.findAllGenres();
         model.addAttribute("genres", genres);
