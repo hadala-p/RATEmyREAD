@@ -37,4 +37,8 @@ public class BookApiController {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         return book;
     }
+    @GetMapping("/recommended")
+    public List<BookDto> getRecommendedBooks() {
+        return bookService.findAllPromotedBooks();
+    }
 }
