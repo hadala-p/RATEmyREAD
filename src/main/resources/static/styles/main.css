@@ -10,7 +10,8 @@ body {
 /*Set the color of links and remove underlines*/
 a {
     text-decoration: none;
-    color: #ffc107;
+    color: #FFD700;
+    text-shadow: 2px 2px 2px #000000;
 }
 /*The background color of the main container and the flex layout setting
 The elements will be placed one below the other
@@ -19,13 +20,17 @@ The elements will be placed one below the other
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #424242;
+    background-image: url(../img/background.jpg);
+    background-color: #5d5d5d;
+    background-size: 1000px 500px;
 }
 /*The main section should scale as the browser window stretches
 and should take up most of the available space
 */
 .main-content {
     flex: 1;
+    box-shadow: 5px 5px 70px #888888;
+    padding: 10px;
 }
 
 /*MENU START*/
@@ -105,6 +110,7 @@ and should take up most of the available space
 .footer {
     padding: 8px;
     text-align: center;
+    background: rgba(11,15,9,0.57);
 }
 /*FOOTER END*/
 
