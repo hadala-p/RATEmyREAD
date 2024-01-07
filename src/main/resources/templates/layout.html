@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Tytuł książki - LibraryOnline</title>
@@ -26,16 +29,18 @@
             <a href="#"><i id="toggle-icon" class="far fa-plus-square"></i></a>
         </li>
         <li class="menu-item">
-            <a href="#" th:href="@{/gatunki-filmowe}">Gatunki</a>
+            <a href="#" th:href="@{/genre}">Gatunki</a>
         </li>
         <li class="menu-item">
             <a href="#">Top10</a>
         </li>
-        <li class="menu-item">
+        </li>
+        <li class="menu-item" sec:authorize="hasAnyRole('ADMIN','EDITOR')">
             <a href="#" th:href="@{/admin}">Administracja</a>
         </li>
         <li class="menu-item">
-            <a href="#">Zaloguj się</a>
+            <a href="#" th:href="@{/login}" sec:authorize="!isAuthenticated()">Zaloguj się</a>
+            <a href="#" th:href="@{/logout}" sec:authorize="isAuthenticated()">Wyloguj się</a>
         </li>
     </ul>
     <header class="jumbotron">
