@@ -330,3 +330,10 @@ textarea {
     margin: 16px 0;
 }
 /*error pages END*/
+/* login page START*/
+/*Tekst nad formularzem*/
+.mc-form-message {
+    color: #ffc107;
+    text-align: center;
+}
+/* login page END*/
