@@ -15,6 +15,9 @@
            class="mc-form-message">
             Błąd logowania.
         </p>
+        <p th:if="${param.logout}" class="mc-form-message">
+            Zostałeś wylogowany, możesz zalogować się ponownie.
+        </p>
         <label for="username">Adres email</label>
         <input id="username" name="username" placeholder="nazwa użytkownika">
         <label for="password">Hasło</label>
