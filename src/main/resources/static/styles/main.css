@@ -110,7 +110,7 @@ and should take up most of the available space
 .footer {
     padding: 8px;
     text-align: center;
-    background: rgba(11,15,9,0.57);
+    background: rgba(11,15,9,0.5);
 }
 /*FOOTER END*/
 
@@ -125,9 +125,11 @@ and should take up most of the available space
 .jumbotron-header {
     font-size: 3rem;
     margin: 1rem 0;
+    text-shadow: 0px 0px 10px black;
 }
 .jumbotron-description {
     font-size: 1.2rem;
+    text-shadow: 0px 0px 10px black;
 }
 /*Jumbotron END*/
 
