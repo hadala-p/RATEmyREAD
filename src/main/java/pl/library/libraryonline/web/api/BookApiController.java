@@ -26,7 +26,7 @@ public class BookApiController {
         this.bookService = bookService;
     }
 
-    @GetMapping("/all")
+    @GetMapping()
     public List<BookDto> getAllBooks() {
         return bookService.findAllBooks();
     }

@@ -34,7 +34,7 @@ public class GenreApiController {
         return genre;
     }
 
-    @GetMapping("/all")
+    @GetMapping()
     public List<GenreDto> getGenreList() {
         return genreService.findAllGenres();
     }
