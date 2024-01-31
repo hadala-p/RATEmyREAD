@@ -1,5 +1,6 @@
 package pl.library.libraryonline.domain.book;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import pl.library.libraryonline.domain.book.dto.BookDto;
 import pl.library.libraryonline.domain.book.dto.BookSaveApiDto;
@@ -41,6 +42,12 @@ public class BookService {
 
     public List<BookDto> findAllBooks() {
         return StreamSupport.stream(bookRepository.findAll().spliterator(), false)
+                .map(BookDtoMapper::map)
+                .toList();
+    }
+    public List<BookDto> findTopBooks(int size) {
+        Pageable page = Pageable.ofSize(size);
+        return bookRepository.findTopByRating(page).stream()
                 .map(BookDtoMapper::map)
                 .toList();
     }

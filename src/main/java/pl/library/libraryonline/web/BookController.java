@@ -11,6 +11,8 @@ import pl.library.libraryonline.domain.book.BookService;
 import pl.library.libraryonline.domain.book.dto.BookDto;
 import pl.library.libraryonline.domain.rating.RatingService;
 
+import java.util.List;
+
 @Controller
 public class BookController {
     private final BookService bookService;
@@ -37,5 +39,13 @@ public class BookController {
             model.addAttribute("userRating", rating);
         }
         return "book";
+    }
+    @GetMapping("/top10")
+    public String findTop10(Model model) {
+        List<BookDto> top10Books = bookService.findTopBooks(10);
+        model.addAttribute("heading", "TOP 10 książek");
+        model.addAttribute("description", "Książki najlepiej oceniane przez użytkowników");
+        model.addAttribute("books", top10Books);
+        return "book-listing";
     }
 }
