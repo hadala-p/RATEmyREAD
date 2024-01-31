@@ -2,17 +2,16 @@ package pl.library.libraryonline.config.security;
 
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import pl.library.libraryonline.domain.user.UserService;
 import pl.library.libraryonline.domain.user.dto.UserCredentialsDto;
 
 @Service
-class CustomUserDetailsService implements UserDetailsService {
+class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
     private final UserService userService;
 
-    public CustomUserDetailsService(UserService userService) {
+    public UserDetailsService(UserService userService) {
         this.userService = userService;
     }
 
