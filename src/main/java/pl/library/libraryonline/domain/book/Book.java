@@ -2,6 +2,10 @@ package pl.library.libraryonline.domain.book;
 
 import jakarta.persistence.*;
 import pl.library.libraryonline.domain.genre.Genre;
+import pl.library.libraryonline.domain.rating.Rating;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Book {
@@ -20,6 +24,8 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "genre_id", referencedColumnName = "id")
     private Genre genre;
+    @OneToMany(mappedBy = "book")
+    private Set<Rating> ratings = new HashSet<>();
     private boolean promoted;
 
     public Long getId() {
@@ -102,4 +108,11 @@ public class Book {
         this.promoted = promoted;
     }
 
+    public Set<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(Set<Rating> ratings) {
+        this.ratings = ratings;
+    }
 }

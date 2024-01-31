@@ -45,6 +45,7 @@ class SecurityConfig {
 
                         .requestMatchers(mvc.pattern(HttpMethod.POST, "/api/books")).hasAnyRole("ADMIN", "EDITOR")
                         .requestMatchers(mvc.pattern(HttpMethod.POST, "/api/genres")).hasAnyRole("ADMIN", "EDITOR")
+                        .requestMatchers("/ocen-film").authenticated()
                         .requestMatchers("/admin/**").hasAnyRole(EDITOR_ROLE, ADMIN_ROLE)
                         .anyRequest().permitAll()
                 )

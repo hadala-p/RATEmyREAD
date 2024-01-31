@@ -12,6 +12,9 @@ public class BookDto {
     private String img;
     private String genre;
     private boolean promoted;
+    private double avgRating;
+    private int ratingCount;
+
 
     public BookDto(Long id,
                    String title,
@@ -22,7 +25,9 @@ public class BookDto {
                    String description,
                    String img,
                    String genre,
-                   boolean promoted) {
+                   boolean promoted,
+                   Double avgRating,
+                   int ratingCount) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -33,6 +38,8 @@ public class BookDto {
         this.img = img;
         this.genre = genre;
         this.promoted = promoted;
+        this.avgRating = avgRating;
+        this.ratingCount = ratingCount;
     }
 
     public Long getId() {
@@ -113,5 +120,21 @@ public class BookDto {
 
     public void setPromoted(boolean promoted) {
         this.promoted = promoted;
+    }
+
+    public double getAvgRating() {
+        return avgRating;
+    }
+
+    public void setAvgRating(double avgRating) {
+        this.avgRating = avgRating;
+    }
+
+    public int getRatingCount() {
+        return ratingCount;
+    }
+
+    public void setRatingCount(int ratingCount) {
+        this.ratingCount = ratingCount;
     }
 }

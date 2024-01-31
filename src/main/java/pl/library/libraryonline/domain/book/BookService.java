@@ -45,7 +45,7 @@ public class BookService {
                 .toList();
     }
 
-    public BookDto addBook(BookSaveDto bookToSave) {
+    public void addBook(BookSaveDto bookToSave) {
         Book book = new Book();
         book.setTitle(bookToSave.getTitle());
         book.setAuthor(bookToSave.getAuthor());
@@ -60,10 +60,7 @@ public class BookService {
             String savedFileName = fileStorageService.saveImage(bookToSave.getImg());
             book.setImg(savedFileName);
         }
-        Book savedBook = bookRepository.save(book);
-        return new BookDto(savedBook.getId(), savedBook.getTitle(), savedBook.getAuthor(), savedBook.getPublisher(),
-                savedBook.getRelease_year(), savedBook.getPages(), savedBook.getDescription(), savedBook.getImg(), savedBook.getGenre().getName(),
-                savedBook.isPromoted());
+        bookRepository.save(book);
     }
     public BookDto createBook(BookSaveApiDto bookToSave) {
         Book book = new Book();
@@ -79,8 +76,9 @@ public class BookService {
         book.setImg(bookToSave.getImg());
         Book savedBook = bookRepository.save(book);
         return new BookDto(savedBook.getId(), savedBook.getTitle(), savedBook.getAuthor(), savedBook.getPublisher(),
-                savedBook.getRelease_year(), savedBook.getPages(), savedBook.getDescription(), savedBook.getImg(), savedBook.getGenre().getName(),
-                savedBook.isPromoted());
+                savedBook.getRelease_year(), savedBook.getPages(), savedBook.getDescription(), savedBook.getImg(),
+                savedBook.getGenre().getName(),
+                savedBook.isPromoted(), 0.0, 0);
     }
 
 }

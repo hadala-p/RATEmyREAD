@@ -9,8 +9,11 @@
         <h2 class="list-heading" th:text="${heading}">Promowane książki / Nazwa Kategorii</h2>
         <p class="list-description" th:text="${description}">Opis sekcji, przykładowo opis kategorii, albo strony głównej</p>
         <ul class="book-list" th:remove="all-but-first">
+            <!-- loop through all books -->
             <li class="book-list-item" th:each="book: ${books}">
+                <!-- link to a single book page -->
                 <a href="#" th:href="@{|/book/${book.id}|}">
+                    <!-- path to book photo -->
                     <img src="../static/img/img.jpg"
                          th:src="${book.img ne null} ? @{|/img/${book.img}|} : @{/img/img.jpg}"
                          alt="tytuł książki"
@@ -26,7 +29,8 @@
                     </div>
                     <div class="book-list-item-rating">
                         <i class="fas fa-star"></i>
-                        <span>8.7</span>
+                        <span th:if="${book.ratingCount}" th:text="${#numbers.formatDecimal(book.avgRating, 1, 1)}">9.2</span>
+                        <span th:if="!${book.ratingCount}">Brak ocen</span>
                     </div>
                 </div>
             </li>
