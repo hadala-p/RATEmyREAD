@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Gatunki filmowe - LibraryOnline</title>
+</head>
+<body>
+<main class="main-content" layout:fragment="content">
+    <h2 class="list-heading">Gatunki książek</h2>
+    <p class="list-description">
+        Poniżej znajdziesz listę gatunków książek w naszym katalogu.
+        Wybierz coś dla siebie.
+    </p>
+    <ul class="list-border">
+        <li th:each="genre: ${genres}">
+            <a th:href="@{|/genre/${genre.name}|}"
+               th:text="${genre.name}">
+                Fantasy
+            </a>
+        </li>
+    </ul>
+</main>
+</body>
+</html>

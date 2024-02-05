@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{layout}">
+<head>
+    <!-- Title -->
+    <title th:text="|${book.title} - LibraryOnline|">Tytuł książki - LibraryOnline</title>
+</head>
+<body>
+<div class="container">
+    <main class="main-content" layout:fragment="content">
+        <section class="book">
+            <!-- Summary -->
+            <div class="book-summary">
+                <!-- We set the address and poster description -->
+                <img src="../static/img/img.jpg"
+                     th:src="${book.img ne null} ? @{|/img/${book.img}|} : @{/img/img.jpg}"
+                     alt="tytuł książki"
+                     th:alt="${book.title}"
+                     class="book-summary-cover"
+                />
+                <!-- information about the book -->
+                <div class="book-summary-info">
+                    <h1 class="book-summary-title" th:text="${book.title}">Tytuł</h1>
+                    <p class="book-summary-author" th:text="${book.author}">Autor</p>
+                    <p class="book-summary-item" th:text="|Rok: ${book.release_year}|">Rok</p>
+                    <p class="book-summary-item" th:text="|Wydawnictwo: ${book.publisher}|">Rok</p>
+                    <p class="book-summary-item" th:text="|Stron: ${book.pages}|">Rok</p>
+                    <!-- We set a link to the book genre page -->
+                    <p class="book-summary-item">Gatunek: <a href="#"
+                                                             th:href="@{|/genre/${book.genre}|}"
+                                                             th:text="${book.genre}">Gatunek</a>
+                    </p>
+                </div>
+            </div>
+            <!-- Rating -->
+            <div class="book-rating-container book-section">
+                <h2 class="book-section-heading">Ocena</h2>
+                <!-- If no vote was cast -->
+                <p th:unless="${book.ratingCount}">Brak głosów</p>
+                <!-- If a vote was cast -->
+                <div th:if="${book.ratingCount}">
+                    <!-- We round the assessment to 1 decimal place -->
+                    <p class="book-rating-value" th:text="${#numbers.formatDecimal(book.avgRating, 1, 1)}">1.0</p>
+                    <p th:text="|Liczba ocen: ${book.ratingCount}|">Liczba ocen: 123</p>
+                </div>
+                <!-- the form is displayed only to the logged_in user -->
+                <form action="#" th:action="@{/ocen-ksiazke}" method="post"
+                      sec:authorize="isAuthenticated()"
+                      class="book-rating-form">
+                    <!-- ID of the film we are voting for-->
+                    <p>Twoja ocena</p>
+                    <input type="hidden" name="bookId" th:value="${book.id}">
+                    <div class="book-rating-buttons">
+                        <!-- generate 5 stars in a loop -->
+                        <button class="book-rating-button"
+                                name="rating"
+                                th:each="i: ${#numbers.sequence(1, 5)}"
+                                th:value="${i}">
+                            <!-- we distinguish between Full and empty stars -->
+                            <i class="fa-star" th:classappend="${i <= userRating ? 'fa-solid' : 'fa-regular'}"></i>
+                        </button>
+                    </div>
+                </form>
+                <!-- login link (if the user is logged in)-->
+                <p sec:authorize="!isAuthenticated()">
+                    <a href="#" th:href="@{/login}">Zaloguj się</a>, aby oddać głos
+                </p>
+            </div>
+        </section>
+        <!-- description -->
+        <section class="book-section">
+            <h2 class="book-section-heading">Opis</h2>
+            <p th:text="${book.description}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a scelerisque ipsum, ac pulvinar ex.
+                In sem justo, facilisis quis quam ut, porttitor auctor elit. Sed eros orci, aliquet ut neque ac,
+                accumsan dapibus urna. Nulla facilisi. Nulla porttitor mattis sodales. Curabitur tempus arcu lacus,
+                dapibus tincidunt nibh ornare ac. Fusce pretium diam dolor, et efficitur tortor ornare sed. Donec nec
+                tellus eu eros pulvinar faucibus. Proin non posuere massa.</p>
+        </section>
+    </main>
+</div>
+</body>
+</html>

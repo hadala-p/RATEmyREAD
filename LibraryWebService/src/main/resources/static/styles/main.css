@@ -1,0 +1,345 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+/*Changing the default font*/
+body {
+    font-family: 'Roboto', sans-serif;
+}
+/*Set the color of links and remove underlines*/
+a {
+    text-decoration: none;
+    color: #FFD700;
+    text-shadow: 2px 2px 2px #000000;
+}
+/*The background color of the main container and the flex layout setting
+The elements will be placed one below the other
+*/
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url(../img/background.jpg);
+    background-color: #5d5d5d;
+    background-size: 1000px 500px;
+}
+/*The main section should scale as the browser window stretches
+and should take up most of the available space
+*/
+.main-content {
+    flex: 1;
+    box-shadow: 5px 5px 70px #888888;
+    padding: 10px;
+}
+
+/*MENU START*/
+/*Color of the logo and the menu drop-down button*/
+.logo,
+#toggle-icon {
+    color: #ffc107;
+}
+/*Settings for a responsive menu*/
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+/*Menu items are hidden by default*/
+.menu-item {
+    width: 100%;
+    padding: 16px;
+    border-bottom: 1px #6d6d6d solid;
+    text-align: center;
+    display: none;
+}
+/*After pressing the button, the elements will be visible*/
+.expanded > .menu-item {
+    display: block;
+}
+/*padding for menu items*/
+.menu-logo-container,
+.menu-toggle {
+    display: block;
+    padding: 16px 32px;
+    font-size: 20px;
+}
+/*MENU END*/
+/*Listing START*/
+/*Headline*/
+.list-heading,
+.list-description {
+    text-align: center;
+    margin: 16px 0;
+}
+/*Removing the decoration of list items (dots at the beginning)*/
+.book-list {
+    list-style-type: none;
+}
+/*Margin and border around a single book*/
+.book-list-item {
+    margin-bottom: 16px;
+    display: flex;
+    border: 1px #6d6d6d solid;
+}
+/*Poster - padding removal*/
+.book-list-item-poster {
+    display: block;
+    max-width: 200px;
+}
+/*book card*/
+.book-list-item-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+}
+.book-list-item-content > * {
+    margin: 8px 0;
+}
+.book-list-item-title {
+    font-size: 1.6rem;
+}
+.book-list-item-rating {
+    font-size: 1.6rem;
+}
+/*Listing END*/
+
+/*FOOTER START*/
+/*Centering the footer*/
+.footer {
+    padding: 8px;
+    text-align: center;
+    background: rgba(11,15,9,0.5);
+}
+/*FOOTER END*/
+
+/*Jumbotron START*/
+.jumbotron {
+    background-image: url("../img/jumbotron.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 2rem;
+    text-align: center;
+}
+.jumbotron-header {
+    font-size: 3rem;
+    margin: 1rem 0;
+    text-shadow: 0px 0px 10px black;
+}
+.jumbotron-description {
+    font-size: 1.2rem;
+    text-shadow: 0px 0px 10px black;
+}
+/*Jumbotron END*/
+
+/*Responsive*/
+@media only screen and (min-width: 992px) {
+    /*On a screen above 992px, we hide the button to expand the menu*/
+    .menu-toggle {
+        display: none;
+    }
+
+    /*Menu items should no longer occupy the entire width, but should instead be next to each other*/
+    .menu-item {
+        display: block;
+        width: auto;
+        border-bottom: 0;
+    }
+
+    /*The container with the logo should be stretched and the navigation should be on the right side*/
+    .menu-logo-container {
+        flex: 1;
+    }
+
+    /*On a large screen, we limit the width to 960px*/
+    .main-content,
+    .menu {
+        align-self: center;
+        width: 960px;
+    }
+}
+/*textarea does not inherit the font from body by default*/
+textarea {
+    font-family: inherit;
+}
+/*labels and inputs one below the other with spaces on the sides*/
+.mc-form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 32px;
+}
+/*spacing between labels and inputs*/
+.mc-form > * {
+    margin-top: 8px;
+}
+/*larger inputs with paddings*/
+.mc-form > input,
+.mc-form > textarea,
+.mc-form > button {
+    font-size: 1.2rem;
+    color: black;
+    padding: 8px;
+}
+.mc-form > button {
+    margin-top: 16px;
+    background-color: white;
+    color: #ffc107;
+    border: none;
+}
+.notification-bar {
+    text-align: center;
+    background-color: #ffc107;
+    padding: 8px 0;
+}
+/*book.html*/
+/*Information about the book in one row with space from the jumbotron*/
+.book-summary {
+    display: flex;
+    margin-top: 16px;
+}
+/*Smaller cover for small screens*/
+.book-summary-cover {
+    object-fit: contain;
+    max-width: 200px;
+}
+/*Distance between information about the book and the cover*/
+.book-summary-info {
+    margin-left: 16px;
+}
+/*author in gray and space below it*/
+.book-summary-author {
+    color: #9e9e9e;
+    margin-bottom: 16px;
+}
+/*Spacing between individual pieces of information*/
+.book-summary-item {
+    margin: 8px 0;
+}
+/*Larger book title*/
+.book-summary-title {
+    font-size: 2rem;
+}
+/*Centering the vote*/
+.book-rating-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 200px;
+}
+
+/*Centering the text Your rating*/
+.book-rating-form > p {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+/*Zoom and center the average rating*/
+.book-rating-value {
+    font-size: 4rem;
+    text-align: center;
+}
+/*Style for rating buttons*/
+.book-rating-button {
+    background-color: #ffc107;
+    border: 0;
+    padding: 4px;
+    font-size: 1.6rem;
+    border-radius: 4px;
+    opacity: 0.8;
+}
+/*Remove transparency when hovering over a button*/
+.book-rating-button:hover {
+    opacity: 1;
+}
+/*Spacing between elements in a voting frame*/
+.book-rating-container > * {
+    margin: 8px 0;
+}
+/*Frame for the voting box*/
+.book-section {
+    margin-top: 16px;
+    padding: 16px;
+    border: 1px #6d6d6d solid;
+}
+/*Space below section headings*/
+.book-section-heading {
+    margin-bottom: 8px;
+}
+.book-section-reservation{
+    margin: 10px;
+    text-align: center;
+}
+.list-border {
+    margin: auto;
+    list-style: none;
+}
+.list-border > li {
+    font-size: 1.2rem;
+    border: 1px #6d6d6d solid;
+    padding: 16px;
+    text-align: center;
+}
+.mc-form > input,
+.mc-form > textarea,
+.mc-form > button,
+.mc-form > select {
+    /*added selector*/
+    font-size: 1.2rem;
+    color: black;
+    padding: 8px;
+}
+/*Larger checkbox*/
+.mc-form > input[type=checkbox] {
+    transform: scale(1.5);
+    margin-left: 5px;
+}
+/*White text color when selecting a file*/
+.mc-form > input[type=file] {
+    color: white;
+}
+/*book.html END*/
+/*Responsive book.html*/
+@media only screen and (min-width: 992px) {
+    /*We add a flexible distribution, the elements will be displayed in one line*/
+    .book {
+        display: flex;
+        justify-content: space-between;
+    }
+    /*The buttons should appear next to each other without wrapping the line*/
+    .book-rating-buttons {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    /*Greater spacing between buttons*/
+    .book-rating-button {
+        font-size: 1.2rem;
+        margin: 0 4px;
+    }
+}
+/*error pages START*/
+.error-container {
+    margin: 32px auto;
+}
+.error-container > * {
+    display: block;
+    text-align: center;
+}
+.error-header,
+.error-icon {
+    font-size: 2rem;
+    margin: 16px 0;
+}
+/*error pages END*/
+/* login page START*/
+/*Tekst nad formularzem*/
+.mc-form-message {
+    color: #ffc107;
+    text-align: center;
+}
+.registration-link {
+    text-align: center;
+    margin-top: 32px;
+}
+/* login page END*/
