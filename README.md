@@ -1,5 +1,10 @@
 <div align="center">
+
+
+
 <h1>LibraryOnline</h1>
+
+![Logo](web-service/src/main/resources/static/img/RateMyReadLogo.png)
 
 |       ENDPOINT        | METHOD  |         REQUEST          |       RESPONSE       |                    FUNCTION                     |
 |:---------------------:|:-------:|:------------------------:|:--------------------:|:-----------------------------------------------:|
