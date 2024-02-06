@@ -7,6 +7,7 @@
 |       api/books       |  GET    |            -             |      JSON (books)    |                returns all books                |
 |       api/books       |  POST   |    JSON BODY (book)      |      JSON (uuid)     |                creates new book                 |
 |   api/books/{uuid}    |  GET    |   PATH VARIABLE (uuid)   |      JSON (book)     |            returns book with given uuid         |
+|   api/recommended     |  GET    |            -             |      JSON (books)    |            returns all recommended books        |
 |       api/genres      |  GET    |            -             |      JSON (genres)   |                returns all genres               |
 |       api/genres      |  POST   |    JSON BODY (genre)     |      JSON (uuid)     |                returns new genres               |
 |   api/genres{name}    |  GET    |   PATH VARIABLE (name)   |      JSON (genre)    |            returns genre with given name        |
