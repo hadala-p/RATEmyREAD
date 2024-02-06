@@ -5,7 +5,8 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>Tytuł książki - LibraryOnline</title>
+    <title>Rate My Read</title>
+    <link rel="icon" type="image/x-icon" href="../static/img/favicon.ico" th:href="@{/img/favicon.ico}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
           integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -22,7 +23,7 @@
     <ul class="menu">
         <li class="menu-logo-container">
             <a href="#" th:href="@{/}">
-                <i class="fas fa-book logo"></i> Library
+                <i class="fas fa-book logo"></i> Rate My Read
             </a>
         </li>
         <li class="menu-toggle">
@@ -44,7 +45,10 @@
         </li>
     </ul>
     <header class="jumbotron">
-        <h1 class="jumbotron-header">LibraryOnline</h1>
+        <!--<h1 class="jumbotron-header">LibraryOnline</h1>-->
+        <a href="#" th:href="@{/}">
+            <img src="" alt="Logo" class="logoimage">
+        </a>
         <p class="jumbotron-description">
             Witaj w najlepszej bibliotece w internecie!
         </p>

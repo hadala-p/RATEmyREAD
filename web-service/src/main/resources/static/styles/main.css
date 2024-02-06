@@ -33,6 +33,11 @@ and should take up most of the available space
     padding: 10px;
 }
 
+.logoimage{
+    content: url(../img/RateMyReadLogo2.png);
+    max-width: 14%
+}
+
 /*MENU START*/
 /*Color of the logo and the menu drop-down button*/
 .logo,
@@ -122,14 +127,17 @@ and should take up most of the available space
     padding: 2rem;
     text-align: center;
 }
+
 .jumbotron-header {
     font-size: 3rem;
     margin: 1rem 0;
     text-shadow: 0px 0px 10px black;
 }
 .jumbotron-description {
-    font-size: 1.2rem;
-    text-shadow: 0px 0px 10px black;
+    font-size: 1.3rem;
+    text-shadow: 0px 0px 9px black;
+    /*-webkit-text-stroke-width: 1px;*/
+    /*-webkit-text-stroke-color: rgba(0,0,0,0.4);*/
 }
 /*Jumbotron END*/
 
