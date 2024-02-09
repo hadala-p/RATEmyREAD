@@ -1,0 +1,66 @@
+version: '3.8'
+services:
+  postgres:
+    hostname: postgres
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: rootpassword
+      POSTGRES_DB: springlibrary
+      POSTGRES_USER: root
+    ports:
+      - "5432:5432"
+    profiles: 
+      - "db"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8085:8085
+    profiles: 
+      - "db"
+
+
+  service1:
+    build:
+      context: ./eureka-service
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    depends_on:
+      - postgres
+
+  service2:
+    build:
+      context: ./gateway-service
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+  service3:
+    build:
+      context: ./rest-service
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000"
+    depends_on:
+      - postgres
+    environment: 
+      - "SPRING_PROFILES_ACTIVE=docker"
+    restart:
+      "on-failure: 10"
+
+  service4:
+    build:
+      context: ./web-service
+      dockerfile: Dockerfile
+    ports:
+      - "9001:9001"
+    depends_on:
+      - postgres
+    environment: 
+      - "SPRING_PROFILES_ACTIVE=docker"
+    restart:
+      "on-failure: 10"

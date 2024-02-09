@@ -4,19 +4,12 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
     <changeSet id="0001-2" author="library">
-        <sql
-                splitStatements="true"
-                stripComments="true">insert into genre (name, description) values ('Science Fiction', 'Gatunek łączący naukę i fikcję, często eksplorujący przyszłość, technologię, kosmos i alternatywne rzeczywistości. Charakteryzuje się użyciem spekulatywnych elementów, takich jak zaawansowane technologie, podróże międzyplanetarne, sztuczna inteligencja i inne formy życia.');
-insert into genre (name, description) values ('Fantasy', 'Gatunek literacki, w którym magia i nadprzyrodzone elementy stanowią kluczowy aspekt fabuły, świata przedstawionego, lub obu. Często zawiera motywy takie jak smoki, wróżki, czarownicy i bohaterowie o niezwykłych mocach.');
-insert into genre (name, description) values ('Kryminał', 'Literatura skupiająca się na przestępstwach, ich śledztwach i rozwiązywaniu zagadek. Charakteryzuje się silnym naciskiem na fabułę i budowanie napięcia, często z detektywem jako głównym bohaterem.');
-insert into genre (name, description) values ('Romans', 'Gatunek literacki skupiający się na relacjach miłosnych między bohaterami i emocjonalnych aspektach miłości. Charakteryzuje się szczegółowym opisem uczuć, namiętności i związków międzyludzkich.');
-insert into genre (name, description) values ('Dla dzieci', 'Literatura przeznaczona głównie dla dzieci, charakteryzująca się prostym językiem, edukacyjnymi i moralnymi przesłaniami. Często zawiera elementy fantastyczne, humorystyczne i ilustracje wspierające narrację.');
-insert into genre (name, description) values ('Nauka', 'Książki o charakterze naukowym, eksplorujące różne dziedziny wiedzy, od biologii po fizykę. Przeznaczone dla szerokiego grona odbiorców, mają na celu edukację i rozwijanie zainteresowań naukowych.');
-insert into genre (name, description) values ('Przygodowe', 'Gatunek literacki, w którym akcja i przygoda dominują nad postaciami i motywami. Charakteryzuje się dynamicznymi wydarzeniami, podróżami w nieznane i ryzykownymi wyzwaniami.');
-insert into genre (name, description) values ('Thriller', 'Literatura pełna napięcia, w której akcja i niepewność prowadzą fabułę. Często zawiera elementy kryminalne, tajemnice i zaskakujące zwroty akcji.');
-insert into genre (name, description) values ('Horror', 'Gatunek literacki mający na celu wzbudzenie strachu i grozy. Oparty na motywach takich jak duchy, potwory, nawiedzone miejsca czy inne nadprzyrodzone zjawiska.');
-insert into genre (name, description) values ('Biografia', 'Gatunek literacki przedstawiający życie i osiągnięcia rzeczywistej osoby. Opiera się na dokładnych badaniach i świadectwach, ukazując różne aspekty życia biografowanej osoby.');
-
-</sql>
+        <loadData
+                file="db/testdata/0001_genres.csv"
+                separator=","
+                tableName="genre">
+            <column name="name" type="STRING"/>
+            <column name="description" type="STRING"/>
+        </loadData>
     </changeSet>
 </databaseChangeLog>

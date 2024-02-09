@@ -11,8 +11,8 @@
     <include file="0004_create_table_book_rating.xml" relativeToChangelogFile="true" />
 
     <!-- TEST DATA -->
-    <include file="../testdata/0001_genres.xml" relativeToChangelogFile="true" context="dev"/>
-    <include file="../testdata/0002_books.xml" relativeToChangelogFile="true" context="dev"/>
-    <include file="../testdata/0003_users_and_roles.xml" relativeToChangelogFile="true" context="dev"/>
-    <include file="../testdata/0004_book_ratings.xml" relativeToChangelogFile="true" context="dev"/>
+    <include file="../testdata/0001_genres.xml" relativeToChangelogFile="true"/>
+    <include file="../testdata/0002_books.xml" relativeToChangelogFile="true"/>
+    <include file="../testdata/0003_users_and_roles.xml" relativeToChangelogFile="true"/>
+    <include file="../testdata/0004_book_ratings.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
