@@ -18,14 +18,7 @@
 |   api/genres{name}    |  GET    |   PATH VARIABLE (name)   |      JSON (genre)    |            returns genre with given name        |
 
 
-  <h4>Test accounts</h4>
 
-
-  |ROLE     | EMAIL             | PASSWORD                 |
-  |:-------:|:-----------------:|:------------------------:|
-  |ADMIN    |admin@library.com  |       adminpass          |
-  |EDITOR   | editor@library.com|       editorpass         |
-  |USER     | user@library.com  |       userpass           |
 
 ## Tech Stack
 Code: <br>
@@ -81,5 +74,14 @@ docker images
 ```
 </li>
 </ol>
+
+  <h4>Test accounts</h4>
+
+
+  |ROLE     | EMAIL             | PASSWORD                 |
+  |:-------:|:-----------------:|:------------------------:|
+  |ADMIN    |admin@library.com  |       adminpass          |
+  |EDITOR   | editor@library.com|       editorpass         |
+  |USER     | user@library.com  |       userpass           |
 
 </div>
