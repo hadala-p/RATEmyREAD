@@ -27,4 +27,42 @@
   |EDITOR   | editor@library.com|       editorpass         |
   |USER     | user@library.com  |       userpass           |
 
+  ## How to build the project on your own
+#### To build the project:
+<ol>
+<li>Clone the repository:</li>
+
+```
+git clone https://github.com/hadala-p/RATEmyREAD.git
+```
+<li>Go to the folder with cloned repository</li> 
+<li>Run the command:</li>
+
+```
+mvn package 
+```
+<li>In folder target you should find a file named: application-{version}-SNAPSHOT.jar</li>
+</ol>
+
+#### To build the docker image with Docker Compose:
+<ol>
+<li>Clone the repository:</li>
+
+```
+git clone https://github.com/hadala-p/RATEmyREAD.git
+```
+<li>Go to the folder with cloned repository</li> 
+<li>Run the command:</li>
+
+```
+docker-compose build
+```
+<li>By using:
+
+```
+docker images
+```
+</li>
+</ol>
+
 </div>
