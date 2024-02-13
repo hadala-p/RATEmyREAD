@@ -47,7 +47,7 @@ Other: <br>
 git clone https://github.com/hadala-p/RATEmyREAD.git
 ```
 <li>Go to the folder with cloned repository</li> 
-<li>Run the command in every services:</li>
+<li>Run the command on all services:</li>
 
 ```
 mvn package 
