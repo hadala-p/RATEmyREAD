@@ -64,7 +64,6 @@ class SecurityConfig {
         http.headers(headers -> headers
                 .frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin)
         );
-        //http.sessionManagement(sessionConfig -> sessionConfig.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         http.csrf(AbstractHttpConfigurer::disable);
         http.addFilterBefore(jwtAuthenticationFilter, AuthorizationFilter.class);
         http.addFilterBefore(bearerTokenFilter, AuthorizationFilter.class);
